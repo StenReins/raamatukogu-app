@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="scripts/index.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <title>Bookshelf app</title>
 </head>
@@ -17,10 +18,10 @@
             <h1>Bookshelf app</h1>
             <div class="spacer"></div>
             <nav class="nav-btns">
-                <button onclick="navHome()">Library</button>
-                <button onclick="openSearch()">Search</button>
-                <button onclick="navStatistics()">Statistics</button>
-                <button onclick="navSettings()">Settings</button>
+                <iconify-icon icon="ic:baseline-local-library" data-inline="false" width="32" aria-label="Home" onclick="navHome()" class="clickable"></iconify-icon>
+                <iconify-icon icon="ic:baseline-search" data-inline="false" width="32" aria-label="Search" onclick="openSearch()" class="clickable"></iconify-icon>
+                <iconify-icon icon="ic:baseline-bar-chart" data-inline="false" width="32" aria-label="Statistics" onclick="navStatistics()" class="clickable"></iconify-icon>
+                <iconify-icon icon="ic:outline-settings" data-inline="false" width="32" aria-label="Settings" onclick="navSettings()" class="clickable"></iconify-icon>
             </nav>
         </header>
         <main>
