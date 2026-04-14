@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/index.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <title>Bookshelf app</title>
+</head>
+<body class="lato-regular">
+    <div>
+        <header>
+            <h1>Bookshelf app</h1>
+            <div class="spacer"></div>
+            <nav class="nav-btns">
+                <button onclick="navHome()">Library</button>
+                <button onclick="openSearch()">Search</button>
+                <button onclick="navStatistics()">Statistics</button>
+                <button onclick="navSettings()">Settings</button>
+            </nav>
+        </header>
+        <main>
+            <h2>Your Library</h2>
+            <div class="library">
+                <div class="wishlist">
+                    <div class="heading-flex">
+                        <h3 onclick="navWishlistBooks()">Wishlist ></h3>
+                        <button class="add">+</button>
+                    </div>
+                    <article class="book-feed" onload="loadWishlistBooks()">
+                        Books
+                    </article>
+                </div>
+                <div class="curr_read">  
+                    <div class="heading-flex">
+                        <h3 onclick="navCurrentBooks()">Currently reading ></h3>
+                        <button class="add">+</button>
+                    </div>
+                    <article class="book-feed" onload="loadCurrentBooks()">
+                        Books
+                    </article>
+                </div>
+                <div class="finished">
+                    <div class="heading-flex">
+                        <h3 onclick="navFinishedBooks()">Finished ></h3>
+                        <button class="add">+</button>
+                    </div>
+                    <article class="book-feed" onload="loadFinishedBooks()">
+                        Books
+                    </article>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>Project made for course "Kasutajaliidese disain ja arendus" by Lisanne Järv and Sten Reins</p>
+        </footer>
+    </div>
+</body>
+</html>
