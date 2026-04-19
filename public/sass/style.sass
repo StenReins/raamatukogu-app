@@ -7,6 +7,21 @@ $add-btn-color:#ffeeca
 $base-font-size: 18px
 $h1-font-size: 1.75rem
 $h2-font-size: 1.5rem
+
+@mixin flex($direction, $justify, $align)
+    display: flex
+    flex-direction: $direction
+    justify-content: $justify
+    align-items: $align
+
+
+@mixin grid($rows: null, $columns: null, $gap: null, $row-gap: null, $column-gap: null)
+    display: grid
+    grid-template-rows: $rows
+    grid-template-columns: $columns
+    gap: $gap
+    row-gap: $row-gap
+    column-gap: $column-gap
     
 .lato-regular
     font-family: "Lato", sans-serif
@@ -29,9 +44,12 @@ body
 header
     display: flex
     align-items: center
-    justify-content: space-evenly
+    justify-content: space-between
 
 main
+    margin-top: 5vh
+    margin-left: 5vw
+    margin-right: 5vw
     margin-bottom: 30%
     h2
         display: flex
@@ -66,3 +84,16 @@ footer
 
 .clickable
     cursor: pointer
+
+.book
+    @include grid($columns: 35% 65%)
+
+.book-info
+    @include flex(column, center, baseline)
+    flex-wrap: nowrap
+
+.text-truncate
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
+    width: 100%

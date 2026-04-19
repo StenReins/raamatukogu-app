@@ -1,72 +1,68 @@
-/*class Book {
-    constructor({
-        isbn = "",
-        series = [],
-        country_code = "",
-        language_code = "",
-        asin = "",
-        is_ebook = "",
-        average_rating = "",
-        kindle_asin = "",
-        similar_books = [],
-        description = "",
-        format = "",
-        authors = [],
-        publisher = "",
-        num_pages = "",
-        isbn13 = "",
-        publication_day = "",
-        publication_month = "",
-        publication_year = "",
-        url = "",
-        image_url = "",
-        book_id = "",
-        ratings_count = "",
-        work_id = "",
-        title = "",
-        title_without_series = "",
+async function getBookData() {
+    const params = new URLSearchParams(window.location.search);
+    const bookId = params.get("id");
 
-    } = {}){
-        this.isbn = isbn;
-        this.series = series;
-        this.country_code = country_code;
-        this.language_code = language_code;
-        this.asin = asin;
-        this.is_ebook = is_ebook;
-        this.average_rating = average_rating;
-        this.kindle_asin = kindle_asin;
-        this.similar_books = similar_books;
-        this.description = description;
-        this.format = format;
-        this.authors = authors.map(author => new Author(author));
-        this.publisher = publisher;
-        this.num_pages = num_pages;
+    function addField(name, value) {
+        let items = document.getElementById("extra-info-items");
+        let fieldDiv = document.createElement('div');
+        fieldDiv.className = "extra-info-item"
+        let fieldName = document.createElement('dt');
+        let fieldValue = document.createElement('dd');
 
-        this.isbn13 = isbn13;
-        this.publication_day = publication_day;
-        this.publication_month = publication_month;
-        this.publication_year = publication_year;
-        this.edition_information = edition_information;
+        fieldName.textContent = name + ": ";
+        fieldValue.textContent = value;
 
-        this.url = url;
-        this.image_url = image_url;
-
-        this.book_id = book_id;
-        this.ratings_count = ratings_count;
-        this.work_id = work_id;
-
-        this.title = title;
-        this.title_without_series = title_without_series
+        items.appendChild(fieldDiv);
+        fieldDiv.appendChild(fieldName);
+        fieldName.appendChild(fieldValue);
     }
 
-    static fromJSON(obj) {
-        return new Book(obj)
+    console.log("Getting book data..")
+
+    if (!bookId) {
+        document.getElementById("book").textContent = "Missing book id";
     }
-}*/
-export class Book {
-    constructor(){}
-    
-    static fromJSON(obj) {
-        return new Book(obj)
+    else {
+        const res = await fetch(`/api/book/${encodeURIComponent(bookId)}`);
+        if (!res.ok) throw new Error('Failed fetching book data!')
+        const data = await res.json();
+        const book = data.item;
+        console.log(book);
+        //curently broken
+        document.getElementById("book-link").href = book.url
+        document.getElementById("book-image").src = book.image_url
+        document.getElementById("book-image").alt = `Book cover of ${book.title}`
+        document.getElementById("book-title").textContent = book.title
+        document.getElementById("book-authors").textContent = book.authors
+        document.getElementById("rating").textContent = book.average_rating + "/5 ⭐"
+        document.getElementById("description").textContent = book.description
+
+        if (book.num_pages) {
+            addField("Pages", book.num_pages)
+        }
+        //need to store language code translations somewhre
+        if (book.language_code) {
+            if (book.language_code == "eng"){
+                addField("Language", "English")
+            }
+            else {
+                addField("Language", "Other")
+            }
+        }
+        if (book.isbn) {
+            addField("ISBN", book.isbn)
+        }
+        if (book.publication_date) {
+            addField("Published", book.publication_date)
+        }
+        if (book.publisher) {
+            addField("Publisher", book.publisher)
+        }
+
+
+        console.log("Book data loaded!");
     }
 }
+document.addEventListener("DOMContentLoaded", () => {
+    getBookData();
+})

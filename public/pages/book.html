@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="scripts/main.js"></script>
-    <script src="scripts/nav.js"></script>
+    <script src="/scripts/main.js"></script>
+    <script src="/scripts/nav.js"></script>
+    <script src="/scripts/book.js"></script>
     <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-
-    <title>Bookshelf app</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="lato-regular">
     <div id="root">
@@ -26,40 +25,27 @@
             </nav>
         </header>
         <main>
-            <h2>Your Library</h2>
-            <div class="library">
-                <div class="wishlist">
-                    <div class="heading-flex">
-                        <h3 onclick="navWishlistBooks()">Wishlist ></h3>
-                        <button class="add">+</button>
-                    </div>
-                    <article class="book-feed" onload="loadWishlistBooks()">
-                        Books
-                    </article>
+            <div class="book" id="book">
+                <div class="book-cover">
+                    <img src="" alt="Book cover" id="book-image">
                 </div>
-                <div class="curr_read">  
-                    <div class="heading-flex">
-                        <h3 onclick="navCurrentBooks()">Currently reading ></h3>
-                        <button class="add">+</button>
+                <section class="book-info">
+                    <a href="" id="book-link" aria-label="Go to Goodreads page.">
+                        <h1 id="book-title">Title</h1>
+                    </a>
+                    <h2 id="book-authors" aria-label="Authors">Author(s)</h2>
+                    <span id="rating" aria-label="Book rating">#/5</span>
+                    <div id="description" class="text-truncate" aria-label="Book description">
+                        <p>Description</p>
                     </div>
-                    <article class="book-feed" onload="loadCurrentBooks()">
-                        Books
-                    </article>
-                </div>
-                <div class="finished">
-                    <div class="heading-flex">
-                        <h3 onclick="navFinishedBooks()">Finished ></h3>
-                        <button class="add">+</button>
+                    <div class="extra-info">
+                        <!-- dynamic info-->
+                        <h3>More information</h3>
+                        <div id="extra-info-items"></div>
                     </div>
-                    <article class="book-feed" onload="loadFinishedBooks()">
-                        Books
-                    </article>
-                </div>
+                </section>
             </div>
         </main>
-        <footer>
-            <p>Project made for course "Kasutajaliidese disain ja arendus" by Lisanne Järv and Sten Reins</p>
-        </footer>
     </div>
 </body>
 </html>
