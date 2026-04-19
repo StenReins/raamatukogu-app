@@ -5,7 +5,7 @@ There are over 2m+ books to search through and which can be added.\
 The dataset we used can be found [here](https://cseweb.ucsd.edu/~jmcauley/datasets/goodreads.html).
 
 ## Current features
-TBD
+- View info about a book
 
 ## Requirements
 - node.js v23 or higher
