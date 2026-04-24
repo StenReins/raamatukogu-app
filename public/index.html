@@ -19,41 +19,91 @@
             <h1>Bookshelf app</h1>
             <div class="spacer"></div>
             <nav class="nav-btns">
-                <iconify-icon icon="ic:baseline-local-library" data-inline="false" width="32" aria-label="Home" onclick="navHome()" class="clickable"></iconify-icon>
-                <iconify-icon icon="ic:baseline-search" data-inline="false" width="32" aria-label="Search" onclick="openSearch()" class="clickable"></iconify-icon>
-                <iconify-icon icon="ic:baseline-bar-chart" data-inline="false" width="32" aria-label="Statistics" onclick="navStatistics()" class="clickable"></iconify-icon>
-                <iconify-icon icon="ic:outline-settings" data-inline="false" width="32" aria-label="Settings" onclick="navSettings()" class="clickable"></iconify-icon>
+                <a href="/">
+                    <iconify-icon icon="ic:baseline-local-library" data-inline="false" width="32" class="icon-button"></iconify-icon>
+                </a>
+                <a href="/search">
+                    <iconify-icon icon="ic:baseline-search" data-inline="false" width="32"></iconify-icon>
+                </a>
+                <a href="/statistics">
+                    <iconify-icon icon="ic:baseline-bar-chart" data-inline="false" width="32"></iconify-icon>
+                </a>
+                <a href="/settings">
+                    <iconify-icon icon="ic:outline-settings" data-inline="false" width="32"></iconify-icon>
+                </a>
             </nav>
         </header>
         <main>
             <h2>Your Library</h2>
-            <div class="library">
-                <div class="wishlist">
-                    <div class="heading-flex">
-                        <h3 onclick="navWishlistBooks()">Wishlist ></h3>
-                        <button class="add">+</button>
+            <div class="bookshelf-wrapper">
+                <div class="bookshelf">
+                    <div class="shelf">
+                        <div class="label">
+                            <h3 class="clickable short">Wishlist 🎁</h3>
+                        </div>
+                        <div class="arrow-flex">
+                            <button>
+                                <iconify-icon icon="material-symbols:arrow-back-rounded" width="24" height="24" class="arrow clickable"></iconify-icon>
+                            </button>
+                            <div class="spacer"></div>
+                            <button>
+                                <iconify-icon icon="material-symbols:arrow-back-rounded" width="24" height="24" class="arrow clickable reverse"></iconify-icon>
+                            </button>
+                        </div>
+                        <article class="shelf-grid">
+                            <div class="book">
+                                <a href="/">
+                                    <img src="resources/test-cover.jpg" alt="Test cover">
+                                </a>
+                            </div>
+                            <div class="book">
+                                <a href="/">
+                                    <img src="resources/test-cover2.jpg" alt="Test cover"> 
+                                </a>                               
+                            </div>
+                            <div class="book">
+                                <a href="/">
+                                    <img src="resources/test-cover.jpg" alt="Test cover"> 
+                                </a>                               
+                            </div>
+                            <div class="book">
+                                <a href="/">
+                                    <img src="resources/test-cover.jpg" alt="Test cover"> 
+                                </a>                               
+                            </div>
+                        </article>
+                    </div>                
+                    <div class="shelf">
+                        <div class="label">
+                            <h3 class="clickable">Currently reading 📖</h3>
+                        </div>    
+                        <div class="arrow-flex">
+                            <button>
+                                <iconify-icon icon="material-symbols:arrow-back-rounded" width="24" height="24" class="arrow clickable"></iconify-icon>
+                            </button>
+                            <div class="spacer"></div>
+                            <button>
+                                <iconify-icon icon="material-symbols:arrow-back-rounded" width="24" height="24" class="arrow clickable reverse"></iconify-icon>
+                            </button>
+                        </div>
+                        <article class="shelf-grid">
+                        </article>
                     </div>
-                    <article class="book-feed" onload="loadWishlistBooks()">
-                        Books
-                    </article>
-                </div>
-                <div class="curr_read">  
-                    <div class="heading-flex">
-                        <h3 onclick="navCurrentBooks()">Currently reading ></h3>
-                        <button class="add">+</button>
+                    <div class="shelf">
+                        <div class="label">
+                            <h3 class="clickable short">Finished 🥇</h3>
+                        </div>
+                        <article class="shelf-grid"></article>
+                        <div class="arrow-flex">
+                            <button>
+                                <iconify-icon icon="material-symbols:arrow-back-rounded" width="24" height="24" class="arrow clickable"></iconify-icon>
+                            </button>
+                            <div class="spacer"></div>
+                            <button>
+                                <iconify-icon icon="material-symbols:arrow-back-rounded" width="24" height="24" class="arrow clickable reverse"></iconify-icon>
+                            </button>
+                        </div>                   
                     </div>
-                    <article class="book-feed" onload="loadCurrentBooks()">
-                        Books
-                    </article>
-                </div>
-                <div class="finished">
-                    <div class="heading-flex">
-                        <h3 onclick="navFinishedBooks()">Finished ></h3>
-                        <button class="add">+</button>
-                    </div>
-                    <article class="book-feed" onload="loadFinishedBooks()">
-                        Books
-                    </article>
                 </div>
             </div>
         </main>

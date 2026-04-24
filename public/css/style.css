@@ -10,13 +10,17 @@
   font-style: normal;
 }
 
+.reverse {
+  rotate: 180deg;
+}
+
 body {
   margin-left: 10vw;
   margin-top: 1vw;
   margin-right: 10vw;
   font-size: 18px;
-  background-color: #222831;
-  color: #dfd0b8;
+  background-color: rgb(34, 40, 49);
+  color: rgb(223, 208, 184);
 }
 
 header {
@@ -24,12 +28,19 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+header nav {
+  display: flex;
+}
+header nav a {
+  text-decoration: none;
+  color: inherit;
+}
 
 main {
   margin-top: 5vh;
   margin-left: 5vw;
   margin-right: 5vw;
-  margin-bottom: 30%;
+  margin-bottom: 5%;
 }
 main h2 {
   display: flex;
@@ -48,15 +59,107 @@ footer {
   grid-template-rows: auto;
 }
 
-.library {
-  margin-left: 20vw;
-  margin-right: 20vw;
+.bookshelf-wrapper {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookshelf {
+  display: grid;
+  grid-template-rows: 33% 33% 33%;
+  height: 80vmin;
+  aspect-ratio: 2/3;
+  background-color: rgb(167, 109, 65);
+  border: rgb(83, 58, 31) 2vmin solid;
+  border-radius: 3vmin 3vmin 1vmin 1vmin;
+  box-shadow: 2vmin 1vmin 4vmin black, inset 3vmin 0vmin rgb(201, 131, 78), inset -3vmin 0vmin rgb(201, 131, 78);
+}
+
+.shelf {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 89%;
+  border-bottom: 3vmin solid rgb(83, 58, 31);
+  border-left: 3vmin solid transparent;
+  border-right: 3vmin solid transparent;
+  box-shadow: 0 1vmin rgb(83, 58, 31);
+}
+
+.label {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 5vmin;
+  background-color: white;
+  border: rgb(83, 58, 31) 1vmin solid;
+  padding-left: 1vmin;
+  padding-right: 1vmin;
+  bottom: 72%;
+  left: 25%;
+  z-index: 1;
+}
+.label h3 {
+  text-align: center;
+  margin: 0;
+  position: relative;
+  font-size: 1.1vmax;
+  color: black;
+}
+
+.arrow-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+.arrow-flex .spacer {
+  margin-left: 60vmin;
+}
+.arrow-flex button {
+  background: transparent;
+  border: none !important;
+}
+.arrow-flex .arrow {
+  color: rgb(223, 208, 184);
+  scale: 2;
+}
+.arrow-flex .arrow:hover {
+  scale: 2.3;
+}
+
+.shelf-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  gap: 1vmin;
+  padding-right: 1vmin;
+  top: 6vmin;
+  position: relative;
+}
+.shelf-grid .book {
+  display: block;
+  width: 90%;
+}
+.shelf-grid .book:hover {
+  z-index: 2;
+}
+.shelf-grid .book img {
+  width: 100%;
+}
+.shelf-grid .book img:hover {
+  scale: 1.25;
 }
 
 .add {
   font-size: 1.5rem;
-  color: #ffeeca;
+  color: rgb(255, 238, 202);
   background-color: rgba(0, 0, 0, 0);
   border: none;
   cursor: pointer;

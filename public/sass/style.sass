@@ -1,7 +1,13 @@
 //COLORS
-$base-font-color:#dfd0b8
-$base-bg-color:#222831
-$add-btn-color:#ffeeca
+$base-font-color:rgb(223, 208, 184)
+$base-bg-color:rgb(34, 40, 49)
+$add-btn-color:rgb(255, 238, 202)
+
+$bookshelf-bg: rgb(167, 109, 65)
+$bookshelf-border: rgb(83, 58, 31)
+$light-brown: rgb(201, 131, 78)
+
+$depth: 3vmin
 
 //FONT-SIZE
 $base-font-size: 18px
@@ -22,6 +28,14 @@ $h2-font-size: 1.5rem
     gap: $gap
     row-gap: $row-gap
     column-gap: $column-gap
+
+@mixin hide-link()
+    text-decoration: none
+    color: inherit
+
+@mixin invis-bg()
+    background: transparent
+    border: none !important
     
 .lato-regular
     font-family: "Lato", sans-serif
@@ -32,6 +46,9 @@ $h2-font-size: 1.5rem
     font-family: "Lato", sans-serif
     font-weight: 700
     font-style: normal
+
+.reverse
+    rotate: 180deg
 
 body
     margin-left: 10vw
@@ -45,12 +62,17 @@ header
     display: flex
     align-items: center
     justify-content: space-between
+    nav
+        display: flex
+        a
+            @include hide-link()
+            
 
 main
     margin-top: 5vh
     margin-left: 5vw
     margin-right: 5vw
-    margin-bottom: 30%
+    margin-bottom: 5%
     h2
         display: flex
         align-items: center
@@ -66,11 +88,78 @@ footer
     grid-template-columns: auto auto
     grid-template-rows: auto
 
-.library
-    margin-left: 20vw
-    margin-right: 20vw
-    display: flex
+.bookshelf-wrapper
+    @include flex(row, center, center)
 
+.bookshelf
+    display: grid
+    grid-template-rows: 33% 33% 33%
+    height: 80vmin
+    aspect-ratio: 2/3
+    background-color: $bookshelf-bg
+    border: $bookshelf-border 2vmin solid
+    border-radius: 3vmin 3vmin 1vmin 1vmin
+    box-shadow: 2vmin 1vmin 4vmin black, inset 3vmin 0vmin $light-brown, inset calc($depth * -1) 0vmin $light-brown
+
+.shelf
+    @include flex(row, center, center)
+    position: relative
+    width: 89%
+    border-bottom: $depth solid $bookshelf-border
+    border-left: $depth solid transparent
+    border-right: $depth solid transparent
+    box-shadow: 0 1vmin $bookshelf-border
+
+
+
+.label
+    @include flex(row, center, center)
+    position: absolute
+    height: 5vmin
+    background-color: white
+    border: $bookshelf-border 1vmin solid
+    padding-left: 1vmin
+    padding-right: 1vmin
+    bottom: 72%
+    left: 25%
+    z-index: 1
+    h3
+        text-align: center
+        margin: 0
+        position: relative
+        font-size: 1.1vmax
+        color: black
+
+
+
+.arrow-flex
+    @include flex(row, center, center)
+    position: absolute
+    .spacer
+        margin-left: 60vmin
+    button
+        @include invis-bg()
+    .arrow
+        color: $base-font-color
+        scale: 2
+
+        &:hover
+            scale: 2.3
+
+.shelf-grid
+    @include grid($columns: repeat(4, 25%), $gap: 1vmin)
+    padding-right: 1vmin
+    top: 6vmin
+    position: relative
+    .book
+        display: block
+        width: 90%
+        &:hover
+            z-index: 2
+        img
+            width: 100%
+            &:hover
+                scale:1.25
 
 .add
     font-size: 1.5rem
