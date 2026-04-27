@@ -1,3 +1,5 @@
+import { User } from "./user.js";
+
 async function loadBookInstances(url) {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`Failed to load books: ${res.status}`);
@@ -16,5 +18,6 @@ async function loadBookInstances(url) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-    console.log("Page loaded!")
+    console.log("Page loaded!");
+    let user = new User();
 })

@@ -1,13 +1,20 @@
-class User {
+export class User {
   constructor(id, username, email, avatar = "") {
     this.id = id;
     this.username = username;
     this.email = email;
     this.avatar = avatar;
 
-    this.toRead = [];
-    this.reading = [];
-    this.read = [];
+    this.toRead = JSON.parse(localStorage.getItem("toRead") ?? "[]");
+    localStorage.setItem("toRead", JSON.stringify(this.toRead));
+
+    this.reading = JSON.parse(localStorage.getItem("reading") ?? "[]");
+    localStorage.setItem("reading", JSON.stringify(this.reading));
+
+    this.read = JSON.parse(localStorage.getItem("read") ?? "[]");
+    localStorage.setItem("read", JSON.stringify(this.read))
+    
+    console.log("User loaded!");
   }
 
   isValidShelf(shelfName) {

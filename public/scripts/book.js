@@ -1,7 +1,65 @@
-async function getBookData() {
-    const params = new URLSearchParams(window.location.search);
-    const bookId = params.get("id");
+const params = new URLSearchParams(window.location.search);
+const bookId = params.get("id");
 
+function readShelf(key) {
+    const raw = localStorage.getItem(key);
+    if (raw == null) return [];
+    try {
+        let parsed = JSON.parse(raw);
+        if(Array.isArray(parsed)) {
+            return parsed.map(String);
+        }
+        if(parsed == null && typeof parsed == "object") return [];
+        return [String(parsed)]
+    } 
+    catch {
+        return [String(raw)];
+    }
+}
+
+function checkBook(shelf, value) {
+    return readShelf(shelf).map(String).includes(String(value));
+}
+
+function addBook(shelf, bookId) {
+    let id = String(bookId);
+    let list = readShelf(shelf).map(String);
+
+    if (list.includes(id)) {
+        return false;
+    }
+    list.push(id);
+    localStorage.setItem(shelf, JSON.stringify(list));
+    return true;
+}
+
+function removeBook(shelf, bookId) {
+    let id = String(bookId);
+    let list = readShelf(shelf).map(String).filter(x => x !== id);
+    localStorage.setItem(shelf, JSON.stringify(list));
+}
+
+async function checkShelves() {
+    const shelves=["toRead", "reading", "read"];
+    const found = shelves.find(shelf => checkBook(shelf, bookId) === true);
+    let btn_txt = "Remove from shelf"
+    let btn = document.getElementById("shelves-btn");
+    let ul = document.getElementById("shelf-opts");
+    
+    if(found) {
+        ul.textContent = ''
+        btn.innerText = btn_txt
+        let ul_btn = document.createElement("button")
+        ul_btn.textContent = `${found}`
+        ul_btn.addEventListener("click", () => {
+            removeBook(found, bookId);
+            checkShelves();
+        })
+        ul.append(ul_btn);
+    }
+}
+
+async function getBookData() {
     function addField(name, value) {
         let items = document.getElementById("extra-info-items");
         let fieldDiv = document.createElement('div');
@@ -27,7 +85,7 @@ async function getBookData() {
         if (!res.ok) throw new Error('Failed fetching book data!')
         const data = await res.json();
         const book = data.item;
-        console.log(book);
+        //console.log(book);
         //curently broken
         document.getElementById("book-link").href = book.url
         document.getElementById("book-image").src = book.image_url
@@ -63,6 +121,34 @@ async function getBookData() {
         console.log("Book data loaded!");
     }
 }
+
+function showHideAdd() {
+    let div = document.getElementById("shelves")
+    if(div.style.display == "none") {
+        div.style.display = "block";
+    }
+    else {
+        div.style.display = "none";
+    }
+}
+
+function addToWishlist() {
+    let notif = document.getElementById("notif");
+    const added = addBook("toRead", bookId);
+    notif.innerText = added ? "Book added to Wishlist!" : "Book is already in Wishlist."
+}
+function addToReading() {
+    let notif = document.getElementById("notif");
+    const added = addBook("reading", bookId);
+    notif.innerText = added ? "Book added to Currently Reading!" : "Book is already in Currently Reading."
+}
+function addToRead() {
+    let notif = document.getElementById("notif");
+    const added = addBook("read", bookId);
+    notif.innerText = added ? "Book added to Finished!" : "Book is already in Finished."
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    checkShelves();
     getBookData();
 })
