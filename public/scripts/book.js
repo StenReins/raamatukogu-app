@@ -1,44 +1,69 @@
 const params = new URLSearchParams(window.location.search);
 const bookId = params.get("id");
 
+class Book {
+    constructor(id, maxPages) {
+        this.id = String(id);
+        this.maxPages = maxPages;
+        this.progress = 0;
+        this.isFinished = false;
+        this.rating = 0;
+        this.startedAt = null;
+        this.finishedAt = null;
+        this.review = "";
+    }
+    setReadPages(pageCount, maxPages) {
+        if (maxPages == null) return;
+        if (pageCount <= maxPages) {
+            this.progress = pageCount;
+        }
+    }
+    setFinished(state = true) {
+        this.isFinished = Boolean(state);
+    }
+}
+
+function getBookPageCount() {
+    let el = document.getElementById("Pages-value");
+    if (!el) return null;
+    let pages = parseInt(el.textContent, 10);
+    return pages;
+}
+
 function readShelf(key) {
     const raw = localStorage.getItem(key);
-    if (raw == null) return [];
+    if (!raw) return {};
     try {
-        let parsed = JSON.parse(raw);
-        if(Array.isArray(parsed)) {
-            return parsed.map(String);
-        }
-        if(parsed == null && typeof parsed == "object") return [];
-        return [String(parsed)]
+        let obj = JSON.parse(raw);
+        return (obj && typeof obj === "object" && !Array.isArray(obj)) ? obj: {};
     } 
     catch {
-        return [String(raw)];
+        return {};
     }
 }
 
-function checkBook(shelf, value) {
-    return readShelf(shelf).map(String).includes(String(value));
+function checkBook(key, value) {
+    let map = readShelf(key);
+    return map[String(value)] ? true : false;
 }
 
-function addBook(shelf, bookId) {
+function addBook(shelf, bookId, maxPages) {
     let id = String(bookId);
-    let list = readShelf(shelf).map(String);
+    let map = readShelf(shelf)
 
-    if (list.includes(id)) {
-        return false;
-    }
-    list.push(id);
-    localStorage.setItem(shelf, JSON.stringify(list));
+    if (map[id]) return false;
+    map[id] = new Book(id, maxPages);
+    localStorage.setItem(shelf, JSON.stringify(map));
     return true;
 }
 
 function removeBook(shelf, bookId) {
     let id = String(bookId);
-    let list = readShelf(shelf).map(String).filter(x => x !== id);
-    localStorage.setItem(shelf, JSON.stringify(list));
-}
+    let map = readShelf(shelf);
 
+    delete map[id];
+    localStorage.setItem(shelf, JSON.stringify(map));
+}
 async function checkShelves() {
     const shelves=["toRead", "reading", "read"];
     const found = shelves.find(shelf => checkBook(shelf, bookId) === true);
@@ -68,6 +93,7 @@ async function getBookData() {
         let fieldValue = document.createElement('dd');
 
         fieldName.textContent = name + ": ";
+        fieldValue.id = `${name}-value`
         fieldValue.textContent = value;
 
         items.appendChild(fieldDiv);
@@ -85,6 +111,7 @@ async function getBookData() {
         if (!res.ok) throw new Error('Failed fetching book data!')
         const data = await res.json();
         const book = data.item;
+
         //console.log(book);
         //curently broken
         document.getElementById("book-link").href = book.url
@@ -134,17 +161,17 @@ function showHideAdd() {
 
 function addToWishlist() {
     let notif = document.getElementById("notif");
-    const added = addBook("toRead", bookId);
+    const added = addBook("toRead", bookId, getBookPageCount());
     notif.innerText = added ? "Book added to Wishlist!" : "Book is already in Wishlist."
 }
 function addToReading() {
     let notif = document.getElementById("notif");
-    const added = addBook("reading", bookId);
+    const added = addBook("reading", bookId, getBookPageCount());
     notif.innerText = added ? "Book added to Currently Reading!" : "Book is already in Currently Reading."
 }
 function addToRead() {
     let notif = document.getElementById("notif");
-    const added = addBook("read", bookId);
+    const added = addBook("read", bookId, getBookPageCount());
     notif.innerText = added ? "Book added to Finished!" : "Book is already in Finished."
 }
 
