@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="scripts/main.js"></script>
+    <script src="/scripts/search.js"></script>
     <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
     <title>Bookshelf app</title>
 </head>
@@ -16,15 +17,13 @@
     <div id="root">
         <header>
             <h1>Bookshelf app</h1>
-            <form class="search-bar">
+            <form class="search-bar" id="search-form">
                 <label for="search">
                     <iconify-icon icon="ic:baseline-search" data-inline="false" width="32" aria-label="Search"></iconify-icon>
                 </label>
                 <input 
-                    type="search"
+                    type="text"
                     id="search"
-                    name="q"
-                    enterkeyhint="go"
                 />
                 <input type="submit" value="Search">
             </form>

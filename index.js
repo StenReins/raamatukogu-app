@@ -1,6 +1,7 @@
 import path from 'path'
 import express from 'express';
 import Database from 'better-sqlite3';
+import searchRoutes, { homeRoutes, bookRoutes, userRoutes } from './routes.js';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -11,15 +12,23 @@ const DB_PATH = "data/books.db"
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, "public")));
+const publicDir = path.join(__dirname, "public");
 
 app.get("/api/health", (req, res) => res.json({ ok: true }));
 
 const db = new Database(DB_PATH, { readonly: true });
 
+app.use(express.static(publicDir));
+
+app.use("/", homeRoutes(publicDir));
+app.use("/book", bookRoutes(publicDir));
+app.use("/user", userRoutes(publicDir));
+app.use("/search", searchRoutes(publicDir));
+
+
 //search endpoint
-app.get("/api/search", (req, res) => {
-    const q = (req.query.q || "").trim();
+app.get("/api/search/:query", (req, res) => {
+    const q = (req.params.query || "").trim();
     const rawLimit = parseInt(req.query.limit ?? "20", 10);
     const rawOffset = parseInt(req.query.offset ?? "0", 10);
 

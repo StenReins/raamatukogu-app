@@ -43,3 +43,15 @@ export function userRoutes(dir) {
     
     return router;
 }
+
+export default function searchRoutes(dir) {
+    const router = express.Router();
+    
+    router.get("/", (req, res) => {
+        res.sendFile(path.join(dir, "pages", "index.html"));
+    });
+    router.get("/:query", (req, res) => {
+        res.sendFile(path.join(dir, "pages", "search.html"));
+    });
+    return router;
+}
