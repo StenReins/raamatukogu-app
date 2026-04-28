@@ -1,5 +1,5 @@
 const params = new URLSearchParams(window.location.search);
-const bookId = params.get("id");
+const bookId = window.location.pathname.split("/").slice(2,3);
 
 class Book {
     constructor(id, maxPages) {
@@ -176,6 +176,7 @@ function addToRead() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    console.log(bookId)
     checkShelves();
     getBookData();
 })

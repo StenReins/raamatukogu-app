@@ -16,13 +16,21 @@
     <div id="root">
         <header>
             <h1>Bookshelf app</h1>
-            <div class="spacer"></div>
+            <form class="search-bar">
+                <label for="search">
+                    <iconify-icon icon="ic:baseline-search" data-inline="false" width="32" aria-label="Search"></iconify-icon>
+                </label>
+                <input 
+                    type="search"
+                    id="search"
+                    name="q"
+                    enterkeyhint="go"
+                />
+                <input type="submit" value="Search">
+            </form>
             <nav class="nav-btns">
                 <a href="/">
                     <iconify-icon icon="ic:baseline-local-library" data-inline="false" width="32" class="icon-button"></iconify-icon>
-                </a>
-                <a href="/search">
-                    <iconify-icon icon="ic:baseline-search" data-inline="false" width="32"></iconify-icon>
                 </a>
                 <a href="/statistics">
                     <iconify-icon icon="ic:baseline-bar-chart" data-inline="false" width="32"></iconify-icon>

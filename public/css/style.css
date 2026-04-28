@@ -28,6 +28,12 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+header .search-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 header nav {
   display: flex;
 }
