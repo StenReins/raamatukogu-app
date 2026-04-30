@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <title>Bookshelf</title>
     <link rel="icon" type="image/png" href="../resources/logo.png">
-    
+
 </head>
 <body class="lato-regular">
     <div id="root">
@@ -49,12 +49,12 @@
         <main class="shelf-page">
             <aside class="shelf-sidebar">
                 <h2>Bookshelves</h2>
-
+                <div class="shelf-list" id="shelf-list">
                 <a class="shelf-tab active" href="/shelf/want-to-read">Want to read</a>
                 <a class="shelf-tab" href="/shelf/currently-reading">Currently reading</a>
                 <a class="shelf-tab" href="/shelf/finished">Finished</a>
-
-                <button class="add-shelf-btn">add shelf</button>
+                </div>
+                <button class="add-shelf-btn" id="open-shelf-modal">add shelf</button>
             </aside>
 
             <section class="shelf-table">
@@ -148,5 +148,25 @@
             </section>
         </main>
     </div>
+    <div class="modal-overlay" id="add-shelf-modal">
+    <div class="modal">
+        <button class="modal-close" id="close-shelf-modal" aria-label="Close modal">×</button>
+
+        <h2>Add new shelf</h2>
+
+        <form id="add-shelf-form" class="add-shelf-form">
+            <label for="shelf-name">Shelf name</label>
+            <input 
+                type="text" 
+                id="shelf-name" 
+                name="shelf-name" 
+                placeholder="Example: Favorites"
+                required
+            >
+
+            <button type="submit">Add shelf</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

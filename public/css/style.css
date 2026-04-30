@@ -916,4 +916,81 @@ footer {
   .average-rating h2 {
     font-size: 1.15rem;
   }
+}
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 1000;
+}
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal {
+  position: relative;
+  width: min(90vw, 420px);
+  padding: 2rem;
+  background-color: rgb(217, 217, 217);
+  color: rgb(20, 20, 20);
+  border-radius: 0.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+.modal h2 {
+  margin: 0 0 1.3rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.8rem;
+  border: none;
+  background: transparent;
+  color: rgb(20, 20, 20);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.modal-close:hover {
+  opacity: 0.65;
+}
+
+.add-shelf-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.add-shelf-form label {
+  font-weight: 700;
+}
+.add-shelf-form input {
+  padding: 0.7rem 0.8rem;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.4rem;
+  font-size: 1rem;
+}
+.add-shelf-form button[type=submit] {
+  margin-top: 0.4rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  background-color: rgb(34, 40, 49);
+  color: rgb(223, 208, 184);
+  font-weight: 700;
+  cursor: pointer;
+}
+.add-shelf-form button[type=submit]:hover {
+  opacity: 0.85;
+}
+
+.shelf-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
 }/*# sourceMappingURL=style.css.map */
