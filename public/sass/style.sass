@@ -839,3 +839,243 @@ footer
           max-width: 64px !important
           max-height: 98px !important
           object-fit: cover !important
+
+// STATISTICS PAGE
+
+.statistics-page
+  width: 100%
+  flex: 1
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding: 1.3rem 0 3rem
+
+.stats-card
+  width: min(100%, 925px)
+  background-color: rgb(217, 217, 217)
+  color: rgb(10, 10, 10)
+
+.stats-summary
+  min-height: 195px
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr
+  align-items: center
+  margin-bottom: 0.35rem
+  padding: 1rem 2rem
+
+.summary-item
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  text-align: center
+
+  iconify-icon
+    color: rgb(35, 35, 35)
+
+  strong
+    margin-top: 0.2rem
+    font-size: 1.45rem
+    font-weight: 900
+    line-height: 1
+
+  span
+    font-size: 0.95rem
+
+.year-summary
+  display: flex
+  flex-direction: column
+  align-items: center
+  text-align: center
+
+  h2
+    margin: 0
+    font-size: 1.45rem
+    font-weight: 900
+    line-height: 1
+
+  h3
+    margin: 0
+    font-size: 1.25rem
+    font-weight: 900
+    line-height: 1.1
+
+  p
+    margin: 0.4rem 0 0
+    font-size: 0.95rem
+
+.profile-circle
+  width: 52px
+  height: 52px
+  margin-top: 0.45rem
+  border-radius: 50%
+  background-color: rgb(222, 177, 103)
+
+.stats-details
+  min-height: 420px
+  display: grid
+  grid-template-columns: 2fr 1fr
+  padding: 0.9rem 1.2rem 0.9rem 1.2rem
+
+.monthly-books
+  display: flex
+  flex-direction: column
+  gap: 0.47rem
+  padding-right: 1.6rem
+
+.month-row
+  display: grid
+  grid-template-columns: 82px 1fr
+  align-items: start
+  min-height: 26px
+
+  > span
+    font-size: 0.95rem
+
+.month-covers
+  display: flex
+  flex-wrap: wrap
+  gap: 0.22rem
+  align-items: flex-start
+
+  img
+    width: 20px
+    height: 29px
+    object-fit: cover
+    display: block
+
+.stats-side
+  border-left: 1px solid rgb(20, 20, 20)
+  padding-left: 1.8rem
+  display: flex
+  flex-direction: column
+  align-items: center
+  text-align: center
+
+.average-length
+  margin-top: 0.15rem
+
+.average-length,
+.average-rating
+  h2
+    margin: 0
+    font-size: 1.35rem
+    font-weight: 900
+
+  strong
+    display: block
+    margin-top: 0.6rem
+    font-size: 1.45rem
+    font-weight: 900
+    line-height: 1
+
+  span
+    display: block
+    font-size: 0.95rem
+
+.average-rating
+  margin-top: 1.55rem
+
+.rating-stars
+  margin-top: 0.55rem
+  font-size: 1.7rem
+  line-height: 1
+  letter-spacing: -0.1rem
+
+.book-extremes
+  width: 100%
+  display: grid
+  grid-template-columns: 1fr 1fr
+  gap: 1.6rem
+  margin-top: 2.5rem
+
+.extreme-book
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  img
+    width: 58px
+    height: 88px
+    object-fit: cover
+    display: block
+    margin-bottom: 0.8rem
+
+  h3
+    margin: 0
+    font-size: 0.95rem
+    font-weight: 900
+
+  strong
+    margin-top: 0.3rem
+    font-size: 1.5rem
+    font-weight: 900
+    line-height: 1
+
+  span
+    font-size: 0.95rem
+
+@media screen and (max-width: 1000px)
+  .stats-card
+    width: 100%
+
+  .stats-details
+    grid-template-columns: 1.6fr 1fr
+
+  .month-row
+    grid-template-columns: 78px 1fr
+
+@media screen and (max-width: 760px)
+  .statistics-page
+    padding-top: 1rem
+
+  .stats-summary
+    grid-template-columns: 1fr
+    gap: 1.5rem
+    padding: 1.5rem
+
+  .stats-details
+    grid-template-columns: 1fr
+    gap: 2rem
+
+  .monthly-books
+    padding-right: 0
+
+  .stats-side
+    border-left: none
+    border-top: 1px solid rgb(20, 20, 20)
+    padding-left: 0
+    padding-top: 1.5rem
+
+  .month-row
+    grid-template-columns: 75px 1fr
+
+@media screen and (max-width: 480px)
+  .month-covers
+    img
+      width: 18px
+      height: 26px
+
+  .book-extremes
+    gap: 1rem
+
+  .average-length,
+  .average-rating
+    h2
+      font-size: 1.15rem
+
+// STATISTICS PAGE SIZE ADJUSTMENT - wider version
+
+.statistics-page
+  padding-top: 1.1rem
+
+.stats-card
+  width: min(100%, 1040px)
+
+.stats-summary
+  min-height: 195px
+  padding: 1rem 2.4rem
+
+.stats-details
+  min-height: 430px
+  padding: 1rem 1.5rem
