@@ -1108,4 +1108,18 @@ footer {
 .stats-details {
   min-height: 430px;
   padding: 1rem 1.5rem;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.site-logo {
+  display: block;
+  max-width: 100px;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
 }/*# sourceMappingURL=style.css.map */
