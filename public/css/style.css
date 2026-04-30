@@ -1122,4 +1122,35 @@ footer {
   height: auto;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.intro-section {
+  width: min(100%, 620px);
+  margin: 1.5rem auto 1.5rem;
+  text-align: center;
+  color: rgb(223, 208, 184);
+}
+.intro-section h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+.intro-section p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(223, 208, 184, 0.9);
+}
+
+@media screen and (max-width: 600px) {
+  .intro-section {
+    margin: 1rem auto 1.2rem;
+    padding: 0 0.5rem;
+  }
+  .intro-section h2 {
+    font-size: 1.35rem;
+  }
+  .intro-section p {
+    font-size: 0.92rem;
+  }
 }/*# sourceMappingURL=style.css.map */
