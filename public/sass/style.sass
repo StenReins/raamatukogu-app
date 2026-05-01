@@ -14,304 +14,266 @@ $button-icon: rgb(223, 208, 184)
 $stats-bg: rgb(217, 217, 217)
 $stats-text: rgb(10, 10, 10)
 
+$depth: 2.8vmin
+$base-font-size: 18px
+
 
 // MIXINS
+@mixin flex($direction, $justify, $align)
+    display: flex
+    flex-direction: $direction
+    justify-content: $justify
+    align-items: $align
+
+
+@mixin grid($rows: null, $columns: null, $gap: null, $row-gap: null, $column-gap: null)
+    display: grid
+    grid-template-rows: $rows
+    grid-template-columns: $columns
+    gap: $gap
+    row-gap: $row-gap
+    column-gap: $column-gap
+
 @mixin flex-center
-  display: flex
-  align-items: center
-  justify-content: center
+    display: flex
+    align-items: center
+    justify-content: center
+
+@mixin hide-link()
+    text-decoration: none
+    color: inherit
+
+@mixin invis-bg()
+    background: transparent
+    border: none !important 
 
 @mixin page-card
-  background-color: $stats-bg
-  color: $stats-text
+    background-color: $stats-bg
+    color: $stats-text
 
 @mixin cover-image($width, $height)
-  display: block
-  width: $width
-  height: $height
-  object-fit: cover
+    display: block
+    width: $width
+    height: $height
+    object-fit: cover
+
 
 
 // BASE
-*
-  box-sizing: border-box
+* 
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+
 
 body
-  margin: 0
-  min-height: 100vh
-  background-color: $base-bg-color
-  color: $base-font-color
+    margin-left: 5vw
+    margin-top: 1vw
+    margin-right: 5vw
+    font-size: $base-font-size
+    background-color: $base-bg-color
+    color: $base-font-color
+
+a
+    @include hide-link()
 
 .lato-regular
-  font-family: "Lato", sans-serif
-  font-weight: 400
-  font-style: normal
+    font-family: "Lato", sans-serif
+    font-weight: 400
+    font-style: normal
 
 .lato-bold
-  font-family: "Lato", sans-serif
-  font-weight: 700
-  font-style: normal
+    font-family: "Lato", sans-serif
+    font-weight: 700
+    font-style: normal
 
 #root
-  min-height: 100vh
-  padding: 0 14vw
-  display: flex
-  flex-direction: column
+    min-height: 100vh
+    padding: 0 14vw
+    display: flex
+    flex-direction: column
 
 .clickable
-  cursor: pointer
+    cursor: pointer
 
 
 // HEADER
 header
-  min-height: 11vh
-  display: flex
-  align-items: center
-  gap: 2rem
-  border-bottom: 3px solid $base-font-color
-
-  h1
-    margin: 0
-    font-size: 3rem
-    font-weight: 400
-    white-space: nowrap
-
-  .spacer
-    flex: 1
-
-.logo-link
-  display: flex
-  align-items: center
-  text-decoration: none
-
-.site-logo
-  display: block
-  max-width: 100px
-  height: auto
-  object-fit: contain
-
-.search-bar
-  margin-left: auto
-  display: flex
-  align-items: center
-  gap: 0.5rem
-  padding: 0.35rem 0.6rem
-  border: 2px solid rgba(223, 208, 184, 0.45)
-  border-radius: 999px
-
-  label
     display: flex
     align-items: center
+    justify-content: space-between
+    border-bottom: 3px solid $base-font-color
+    nav
+        display: flex
+        a
+            @include hide-link()
+    h1
+        margin: 0
+        font-size: 3rem
+        font-weight: 400
+        white-space: nowrap
 
-  iconify-icon
-    color: $base-font-color
+.logo-link
+    @include flex(row, center, center)
+    @include hide-link()
+  
 
-  input[type="text"]
-    width: 11rem
-    border: none
-    outline: none
-    background: transparent
-    color: $base-font-color
-    font-size: 1rem
+.site-logo
+    display: block
+    max-width: 100px
+    height: auto
+    object-fit: contain
 
-  input[type="submit"]
-    border: none
+.search-bar
+    margin-left: 15vw
+    @include flex(row, center, center)
+    padding: 1vmin 2vmin
+    border: 2px solid rgba(223, 208, 184, 0.45)
     border-radius: 999px
-    padding: 0.35rem 0.8rem
-    background-color: $base-font-color
-    color: $base-bg-color
-    cursor: pointer
-    font-weight: 700
+
+    label
+        @include flex(row, center, center)
+
+    iconify-icon
+        color: $base-font-color
+
+    input[type="text"]
+        width: 11rem
+        border: none
+        outline: none
+        background: transparent
+        color: $base-font-color
+        font-size: 1rem
+
+    input[type="submit"]
+        border: none
+        border-radius: 999px
+        padding: 0.35rem 0.8rem
+        background-color: $base-font-color
+        color: $base-bg-color
+        cursor: pointer
+        font-weight: 700
 
     &:hover
-      opacity: 0.85
+        opacity: 0.85
 
 .nav-btns
-  display: flex
-  align-items: center
-  gap: 0.8rem
+    @include flex(row, center, center)
+    gap: 1vmin
 
-  a
-    @include flex-center
-    color: $base-font-color
-    text-decoration: none
+    a
+        @include flex(row, center, center)
+        @include hide-link()
+        color: $base-font-color
+        &:hover
+            transform: scale(1.12)
 
-  iconify-icon
-    color: $base-font-color
-    transition: transform 0.2s ease, opacity 0.2s ease
-
-    &:hover
-      transform: scale(1.12)
-      opacity: 0.8
+    iconify-icon
+        color: $base-font-color
+        transition: transform 0.2s ease, opacity 0.2s ease
 
 
 // MAIN
 main
-  flex: 1
-  min-height: 78vh
-  display: flex
-  flex-direction: column
-  align-items: center
-  justify-content: center
-  padding: 2rem 0
-
-  > h2
-    display: none
-
-footer
-  display: none
+    @include flex(column, center, center)
+    width: 100%
+    padding: 2rem 0
 
 
 // INTRO SECTION
 .intro-section
-  width: min(100%, 620px)
-  margin: 1.5rem auto
-  text-align: center
-  color: $base-font-color
+    width: min(100%, 620px)
+    margin: 1.5rem auto
+    text-align: center
+    color: $base-font-color
 
-  h2
-    margin: 0 0 0.6rem
-    font-size: 1.7rem
-    font-weight: 900
+    h2
+        margin: 0 0 0.6rem
+        font-size: 1.7rem
+        font-weight: 900
 
-  p
-    margin: 0
-    font-size: 1rem
-    line-height: 1.5
-    color: rgba(223, 208, 184, 0.9)
+    p
+        font-size: 1rem
+        line-height: 1.5
 
 
 // HOMEPAGE BOOKSHELF
 .bookshelf-wrapper
-  width: 100%
-  @include flex-center
+    width: 100%
+    @include flex(row, center, center)
+
 
 .bookshelf
-  width: min(40vw, 500px)
-  min-width: 360px
-  height: min(68vh, 590px)
-  display: grid
-  grid-template-rows: repeat(3, 1fr)
-  background-color: $bookshelf-bg
-  border: 10px solid $bookshelf-border
-  border-radius: 14px 14px 8px 8px
-  box-shadow: 0 10px 22px $bookshelf-shadow, inset 14px 0 0 $bookshelf-light, inset -14px 0 0 rgba(76, 47, 21, 0.65)
-  overflow: visible
+    display: grid
+    grid-template-rows: repeat(3, 33%)
+    height: 80vmin
+    width: 70vmin
+    background-color: $bookshelf-bg
+    border: $bookshelf-border 2vmin solid
+    border-radius: 3vmin 3vmin 1vmin 1vmin
+    box-shadow: 2vmin 1vmin 4vmin black, inset 3vmin 0vmin $bookshelf-light, inset calc($depth * -1) 0vmin $bookshelf-light
 
 .shelf
-  position: relative
-  display: flex
-  align-items: flex-end
-  justify-content: center
-  padding: 4rem 1.5rem 0.9rem
-  border-bottom: 12px solid $bookshelf-border
-  box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.25)
-
-  &:last-child
-    border-bottom: none
+    @include flex(row, center, center)
+    position: relative
+    width: 100%
+    border-bottom: $depth solid $bookshelf-border
+    border-left: $depth solid transparent
+    border-right: $depth solid transparent
+    box-shadow: 0 1vmin $bookshelf-border
 
 .label
-  position: absolute
-  top: 0.9rem
-  left: 50%
-  transform: translateX(-50%)
-  z-index: 3
-  width: auto
-  min-width: 0
-  padding: 0
-  margin: 0
-  display: block
-  background: transparent !important
-  background-color: transparent !important
-  border: none !important
-  box-shadow: none !important
-
-  h3
-    margin: 0
-    padding: 0
-    background: transparent !important
-    background-color: transparent !important
-    border: none !important
-    box-shadow: none !important
-    color: $base-font-color
-    font-size: 1rem
-    font-weight: 700
-    line-height: 1.2
-    text-align: center
-    white-space: nowrap
-
-.shelf-title-link
-  color: inherit
-  text-decoration: none
+    @include flex(row, center, center)
+    position: absolute
+    width: auto
+    bottom: 82%
+    z-index: 1
+    h3
+        text-align: center
+        color: $base-font-color
+        margin: 0
+        padding: 0
+        position: relative
+        font-size: 1rem
 
 .arrow-flex
-  position: absolute
-  left: -4.8rem
-  right: -4.8rem
-  top: 50%
-  transform: translateY(-50%)
-  display: flex
-  align-items: center
-  justify-content: space-between
-  pointer-events: none
-  z-index: 10
+    @include flex(row, center, center)
+    position: absolute
+    .spacer
+        margin-left: 75vmin
+    button
+        @include invis-bg()
+    .arrow
+        color: $base-font-color
+        scale: 2
 
-  .spacer
-    display: none
-
-  button
-    border: none
-    display: flex
-    align-items: center
-    justify-content: center
-    background: transparent
-    cursor: pointer
-    pointer-events: auto
-    box-shadow: none
-    padding: 0
-    width: auto
-    height: auto
-
-    &:hover
-      transform: scale(1.08)
-
-  .arrow
-    color: $button-icon
-    display: block
-    transform: scale(1.35)
-
-  .reverse
-    transform: rotate(180deg) scale(1.35)
+        &:hover
+            scale: 2.3
+    
+    .reverse
+        transform: rotate(180deg)
 
 .shelf-grid
-  width: 100%
-  height: 100%
-  display: grid
-  grid-template-columns: repeat(4, 1fr)
-  align-items: end
-  gap: 1rem
-  padding: 0 0.2rem
-
-.book
-  width: 100%
-  max-width: 88px
-  justify-self: center
-  align-self: end
-  transition: transform 0.2s ease, z-index 0.2s ease
-
-  &:hover
-    transform: translateY(-7px) scale(1.04)
-    z-index: 5
-
-  a
-    display: block
-    color: inherit
-    text-decoration: none
-
-  img
-    @include cover-image(100%, 118px)
-    box-shadow: 4px 5px 9px rgba(0, 0, 0, 0.45)
-
+    @include grid($columns: repeat(4, 25%), $gap: 2vmin)
+    padding-right: 3vmin
+    top: 3vmin
+    align-items: end
+    width: 90%
+    position: relative
+    .book
+        display: block
+        position: relative
+        width: 100%
+        transition: transform 0.2s ease, z-index 0.2s ease
+        &:hover
+            transform: translateY(-7px) scale(1.04)
+            z-index: 2
+        a
+            @include hide-link()
+            
+        img
+            width: 100%
+            box-shadow: 4px 5px 9px rgba(0, 0, 0, 0.45)
 
 // SHELF PAGE
 .shelf-page
@@ -629,9 +591,6 @@ footer
     h1
       font-size: 2.4rem
 
-  .bookshelf
-    width: min(55vw, 500px)
-
   .shelf-page
     grid-template-columns: 140px 1fr
     column-gap: 1.4rem
@@ -708,15 +667,7 @@ footer
   .nav-btns
     margin-left: auto
 
-  .bookshelf
-    width: 78vw
-    min-width: 310px
-    height: 68vh
-
   .arrow-flex
-    left: -3.5rem
-    right: -3.5rem
-
     button
       width: 46px
       height: 46px
@@ -831,13 +782,6 @@ footer
     h1
       font-size: 1.7rem
 
-  .bookshelf
-    width: 92vw
-    min-width: unset
-    height: 68vh
-
-  .shelf
-    padding: 3.7rem 1rem 0.75rem
 
   .label
     top: 0.85rem
@@ -848,8 +792,6 @@ footer
   .arrow-flex
     display: none
 
-  .shelf-grid
-    gap: 0.65rem
 
   .book
     max-width: 70px
