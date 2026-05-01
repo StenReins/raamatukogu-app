@@ -1,0 +1,23 @@
+@use "./style"
+
+.search
+    @include style.flex(row, start, center)
+    gap: 15%
+    span
+        align-self: baseline
+    
+    .search-results
+        @include style.flex(row, start, center)
+        flex-wrap: wrap
+        position: relative
+        article
+            width: 100%
+            padding-bottom: 2vmin
+            padding-top: 2vmin
+            @include style.flex(row, start, center)
+            margin-bottom: 3vmin
+            border: 1px solid white
+
+
+
+    

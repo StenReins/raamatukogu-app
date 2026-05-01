@@ -1,7 +1,7 @@
 import path from 'path'
 import express from 'express';
 import Database from 'better-sqlite3';
-import searchRoutes, { homeRoutes, bookRoutes, userRoutes } from './routes.js';
+import { searchRoutes, homeRoutes, bookRoutes, userRoutes } from './routes.js';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -46,7 +46,7 @@ app.get("/api/search/:query", (req, res) => {
     `);
 
     const itemsStmt = db.prepare(`
-        SELECT books.book_id, books.title, books.image_url, books.average_rating
+        SELECT books.book_id, books.title, books.authors, books.image_url, books.average_rating
         FROM books_fts
         JOIN books on books_fts.id = books.id
         WHERE books_fts MATCH ?
