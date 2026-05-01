@@ -44,7 +44,7 @@ export function userRoutes(dir) {
     return router;
 }
 
-export default function searchRoutes(dir) {
+export function searchRoutes(dir) {
     const router = express.Router();
     
     router.get("/", (req, res) => {
