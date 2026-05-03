@@ -1,11 +1,20 @@
 # Book organizing app project
 This app allows the user to organize and keep track of their books and reading progress.\
-There are over 2m+ books to search through and which can be added.\ 
+There are over 2m+ books to search through and which can be added. 
 \
 The dataset we used can be found [here](https://cseweb.ucsd.edu/~jmcauley/datasets/goodreads.html).
 
 ## Current features
+- Search for books
 - View info about a book
+- Add books into your shelf & afterwards leave a review
+- View your books in a shelf
+- See statistics about your progress
+
+## Planned features
+- Settings
+- Make things working & dynamic
+- Books show up on your shelf
 
 ## Requirements
 - node.js v23 or higher
