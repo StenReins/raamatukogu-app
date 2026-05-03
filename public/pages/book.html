@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="/scripts/main.js"></script>
     <script src="/scripts/book.js"></script>
+    <script src="/scripts/review.js"></script>
     <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/book.css">
     <link rel="icon" type="image/png" href="../resources/logo.png">
 </head>
 <body class="lato-regular">
@@ -67,6 +69,42 @@
                         <!-- dynamic info-->
                         <h3>More information</h3>
                         <div id="extra-info-items"></div>
+                    </div>
+                    <div class="review">
+                        <form action=# name="review-form" id="review-form">
+                            <h3 id="title" class="call-to-action-text">Select a rating:</h1>
+                            <div class="star-wrap">
+                                <label class="star-label hidden"></label>
+                                <input class="star" type="radio" id="st-1" value="1" name="star-radio" autocomplete="off" />
+                                <label class="star-label" for="st-1">
+                                    <iconify-icon icon="line-md:star-filled" width="24" height="24"></iconify-icon>
+                                </label>
+                                <input class="star" type="radio" id="st-2" value="2" name="star-radio" autocomplete="off" />
+                                <label class="star-label" for="st-2">
+                                    <iconify-icon icon="line-md:star-filled" width="24" height="24"></iconify-icon>
+                                </label>
+                                <input class="star" type="radio" id="st-3" value="3" name="star-radio" autocomplete="off" />
+                                <label class="star-label" for="st-3">
+                                    <iconify-icon icon="line-md:star-filled" width="24" height="24"></iconify-icon>
+                                </label>
+                                <input class="star" type="radio" id="st-4" value="4" name="star-radio" autocomplete="off" />
+                                <label class="star-label" for="st-4">
+                                    <iconify-icon icon="line-md:star-filled" width="24" height="24"></iconify-icon>
+                                </label>
+                                <input class="star" type="radio" id="st-5" value="5" name="star-radio" autocomplete="off" />
+                                <label class="star-label" for="st-5">
+                                    <iconify-icon icon="line-md:star-filled" width="24" height="24"></iconify-icon>
+                                </label>
+                            </div>
+                            <input
+                                class="lato-regular"
+                                type="text"
+                                id="review"
+                                placeholder="Leave a review..."
+                            >
+                            <input type="submit" value="Submit"class="review-submit-btn">
+                        </form>
+                        <div class="review-box"></div>
                     </div>
                 </section>
             </div>

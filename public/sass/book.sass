@@ -1,0 +1,33 @@
+@use "./style"
+
+
+
+iconify-icon
+    color: gold
+
+.star:checked + .star-label ~ .star-label iconify-icon
+    color: lightgray
+
+
+.star
+    position: fixed
+    opacity: 0
+    left: -90000px
+
+
+.star:focus + .star-label
+    outline: 2px dotted black
+
+#review
+    color: style.$base-font-color
+    padding: 1px
+    height: 100px
+    width: 75%
+    background: transparent
+    border: 2px solid style.$base-font-color
+
+.review-submit-btn
+    background-color: style.$base-font-color
+    color: black
+    border: 1px solid transparent
+    border-radius: 20px
