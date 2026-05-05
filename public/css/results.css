@@ -207,13 +207,29 @@ main {
   bottom: 82%;
   z-index: 1;
 }
+.label a {
+  color: rgb(223, 208, 184);
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0.15rem 0.35rem;
+}
+.label a:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+.label a:focus-visible {
+  outline: 2px solid rgb(223, 208, 184);
+  outline-offset: 4px;
+}
 .label h3 {
   text-align: center;
-  color: rgb(223, 208, 184);
+  color: inherit;
   margin: 0;
   padding: 0;
   position: relative;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .arrow-flex {
@@ -970,4 +986,4 @@ main {
   align-items: center;
   margin-bottom: 3vmin;
   border: 1px solid white;
-}/*# sourceMappingURL=results.css.map */
+}

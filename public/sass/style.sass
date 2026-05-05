@@ -228,13 +228,31 @@ main
     width: auto
     bottom: 82%
     z-index: 1
+
+    a
+        color: $base-font-color
+        text-decoration: none
+        cursor: pointer
+        border-radius: 4px
+        padding: 0.15rem 0.35rem
+
+        &:hover
+            text-decoration: underline
+            opacity: 0.85
+
+        &:focus-visible
+            outline: 2px solid $base-font-color
+            outline-offset: 4px
+
     h3
         text-align: center
-        color: $base-font-color
+        color: inherit
         margin: 0
         padding: 0
         position: relative
         font-size: 1rem
+        cursor: pointer
+
 
 .arrow-flex
     @include flex(row, center, center)
