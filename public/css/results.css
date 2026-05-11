@@ -958,6 +958,84 @@ main {
   gap: 1.35rem;
 }
 
+@media screen and (max-width: 420px) {
+  .bookshelf-wrapper {
+    padding: 0 0.5rem;
+  }
+  .bookshelf {
+    width: 92vw;
+    height: 72vmin;
+    border: rgb(76, 47, 21) 1.6vmin solid;
+    border-radius: 2.6vmin 2.6vmin 0.9vmin 0.9vmin;
+    box-shadow: 1.6vmin 0.9vmin 3.5vmin black, inset 2.6vmin 0vmin rgb(174, 111, 55), inset -2.24vmin 0vmin rgb(174, 111, 55);
+  }
+  .shelf {
+    border-bottom: 2.1vmin solid rgb(76, 47, 21);
+    box-shadow: 0 0.75vmin rgb(76, 47, 21);
+  }
+  .shelf-grid {
+    width: 95%;
+    padding-right: 2vmin;
+    gap: 1.2vmin;
+  }
+  .shelf-grid .book {
+    max-width: 54px;
+  }
+  .book img {
+    height: 78px;
+  }
+  .label {
+    bottom: 80%;
+  }
+  .label h3 {
+    font-size: 0.78rem;
+  }
+  .label a {
+    padding: 0.12rem 0.28rem;
+  }
+  .modal {
+    padding: 1.4rem;
+    width: min(92vw, 400px);
+  }
+  .modal h2 {
+    font-size: 1.25rem;
+  }
+  .modal-close {
+    top: 0.5rem;
+    right: 0.6rem;
+    font-size: 1.85rem;
+  }
+}
+@media screen and (max-width: 360px) {
+  .bookshelf {
+    height: 68vmin;
+  }
+  .shelf-grid {
+    gap: 1vmin;
+  }
+  .book {
+    max-width: 50px;
+  }
+  .book img {
+    height: 72px;
+  }
+  .label {
+    bottom: 79%;
+  }
+  .stats-card {
+    padding: 0.75rem;
+  }
+  .modal {
+    padding: 1.2rem;
+  }
+  .add-shelf-form {
+    gap: 0.65rem;
+  }
+  .add-shelf-form input {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.95rem;
+  }
+}
 .search {
   display: flex;
   flex-direction: row;
@@ -986,4 +1064,4 @@ main {
   align-items: center;
   margin-bottom: 3vmin;
   border: 1px solid white;
-}
+}/*# sourceMappingURL=results.css.map */
