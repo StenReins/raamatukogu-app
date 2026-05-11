@@ -57,7 +57,7 @@ header nav a h1 {
 }
 header nav .skip-link {
   color: transparent;
-  position: absolute;
+  position: relative;
 }
 
 .logo-link {

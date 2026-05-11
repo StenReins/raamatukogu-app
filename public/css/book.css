@@ -42,7 +42,6 @@ a {
 header {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   justify-content: space-between;
   border-bottom: 3px solid rgb(223, 208, 184);
 }
@@ -53,11 +52,13 @@ header nav a {
   text-decoration: none;
   color: inherit;
 }
-header h1 {
-  margin: 0;
-  font-size: 3rem;
-  font-weight: 400;
-  white-space: nowrap;
+header nav a h1 {
+  position: absolute;
+}
+header nav .skip-link {
+  display: none;
+  color: transparent;
+  position: absolute;
 }
 
 .logo-link {
