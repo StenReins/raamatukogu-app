@@ -42,6 +42,7 @@ a {
 header {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
   border-bottom: 3px solid rgb(223, 208, 184);
 }
@@ -632,254 +633,6 @@ main {
   font-size: 0.95rem;
 }
 
-@media screen and (max-width: 1100px) {
-  #root {
-    padding: 0 8vw;
-  }
-  header h1 {
-    font-size: 2.4rem;
-  }
-  .shelf-page {
-    grid-template-columns: 140px 1fr;
-    -moz-column-gap: 1.4rem;
-         column-gap: 1.4rem;
-  }
-  .table-header,
-  .shelf-book-row {
-    grid-template-columns: 75px 1.25fr 0.9fr 0.7fr 1.1fr 0.9fr 0.85fr 0.85fr;
-    -moz-column-gap: 0.55rem;
-         column-gap: 0.55rem;
-  }
-  .stars {
-    font-size: 1.45rem;
-  }
-}
-@media screen and (max-width: 1000px) {
-  .stats-card {
-    width: 100%;
-  }
-  .stats-details {
-    grid-template-columns: 1.6fr 1fr;
-  }
-  .month-row {
-    grid-template-columns: 78px 1fr;
-  }
-}
-@media screen and (max-width: 850px) {
-  .shelf-page {
-    grid-template-columns: 1fr;
-    row-gap: 2rem;
-  }
-  .shelf-sidebar {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.7rem;
-  }
-  .shelf-sidebar h2 {
-    grid-column: 1/-1;
-  }
-  .add-shelf-btn {
-    grid-column: 1/-1;
-  }
-  .shelf-tab::after {
-    display: none;
-  }
-  .shelf-table {
-    max-width: 100%;
-    overflow-x: auto;
-  }
-  .table-header,
-  .shelf-book-row {
-    min-width: 760px;
-  }
-}
-@media screen and (max-width: 800px) {
-  #root {
-    padding: 0 5vw;
-  }
-  header {
-    min-height: auto;
-    padding: 1.3rem 0;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  header h1 {
-    font-size: 2rem;
-  }
-  .search-bar {
-    order: 3;
-    width: 100%;
-    margin-left: 0;
-  }
-  .search-bar input[type=text] {
-    width: 100%;
-    flex: 1;
-  }
-  .nav-btns {
-    margin-left: auto;
-  }
-  .arrow-flex button {
-    width: 46px;
-    height: 46px;
-  }
-  .book img {
-    height: 100px;
-  }
-}
-@media screen and (max-width: 760px) {
-  .statistics-page {
-    padding-top: 1rem;
-  }
-  .statistics-page .stats-summary {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr 1fr;
-    align-items: center;
-    justify-items: center;
-    gap: 0.3rem;
-    padding: 1.3rem 0.6rem;
-    min-height: 165px;
-  }
-  .statistics-page .summary-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 0;
-  }
-  .statistics-page .summary-item iconify-icon {
-    display: block;
-    width: 34px;
-    height: 34px;
-    margin: 0 auto 0.15rem;
-    transform: translateX(-2px);
-  }
-  .statistics-page .summary-item strong {
-    width: 100%;
-    margin: 0.35rem 0 0;
-    font-size: 1.15rem;
-    line-height: 1;
-    text-align: center;
-  }
-  .statistics-page .summary-item span {
-    width: 100%;
-    margin: 0;
-    font-size: 0.75rem;
-    line-height: 1;
-    text-align: center;
-  }
-  .statistics-page .year-summary {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  .statistics-page .year-summary h2 {
-    margin: 0;
-    font-size: 1.1rem;
-    line-height: 1;
-  }
-  .statistics-page .year-summary h3 {
-    margin: 0 0 0.25rem;
-    font-size: 0.9rem;
-    line-height: 1;
-  }
-  .statistics-page .year-summary .profile-circle {
-    width: 40px;
-    height: 40px;
-    margin: 0.25rem 0;
-  }
-  .statistics-page .year-summary p {
-    margin: 0;
-    font-size: 0.75rem;
-    line-height: 1;
-  }
-  .statistics-page .stats-details {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  .statistics-page .monthly-books {
-    padding-right: 0;
-  }
-  .statistics-page .stats-side {
-    border-left: none;
-    border-top: 1px solid rgb(20, 20, 20);
-    padding-left: 0;
-    padding-top: 1.5rem;
-  }
-  .statistics-page .month-row {
-    grid-template-columns: 75px 1fr;
-  }
-}
-@media screen and (max-width: 600px) {
-  .intro-section {
-    margin: 1rem auto 1.2rem;
-    padding: 0 0.5rem;
-  }
-  .intro-section h2 {
-    font-size: 1.35rem;
-  }
-  .intro-section p {
-    font-size: 0.92rem;
-  }
-}
-@media screen and (max-width: 560px) {
-  #root {
-    padding: 0 4vw;
-  }
-  header {
-    align-items: flex-start;
-  }
-  header h1 {
-    font-size: 1.7rem;
-  }
-  .label {
-    top: 0.85rem;
-  }
-  .label h3 {
-    font-size: 0.85rem;
-  }
-  .arrow-flex {
-    display: none;
-  }
-  .book {
-    max-width: 70px;
-  }
-  .book img {
-    height: 88px;
-  }
-  .shelf-page {
-    padding-top: 1.2rem;
-  }
-  .shelf-sidebar {
-    grid-template-columns: 1fr;
-  }
-  .shelf-tab {
-    justify-content: center;
-  }
-  .shelf-tab.active {
-    justify-content: center;
-  }
-  .table-header,
-  .shelf-book-row {
-    min-width: 720px;
-  }
-}
-@media screen and (max-width: 480px) {
-  .month-covers img {
-    width: 18px;
-    height: 26px;
-  }
-  .book-extremes {
-    gap: 1rem;
-  }
-  .average-length h2,
-  .average-rating h2 {
-    font-size: 1.15rem;
-  }
-}
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -957,10 +710,259 @@ main {
   flex-direction: column;
   gap: 1.35rem;
 }
+.shelf-list .modal {
+  padding: 1.4rem;
+  width: min(92vw, 400px);
+}
+.shelf-list .modal h2 {
+  font-size: 1.25rem;
+}
+.shelf-list .modal-close {
+  top: 0.5rem;
+  right: 0.6rem;
+  font-size: 1.85rem;
+}
 
+@media screen and (max-width: 1100px) {
+  #root {
+    padding: 0 8vw;
+  }
+  header h1 {
+    font-size: clamp(2rem, 2.2rem + 0.6vw, 2.4rem);
+  }
+  .shelf-page {
+    grid-template-columns: clamp(120px, 12vw, 140px) 1fr;
+    -moz-column-gap: clamp(1rem, 1.1rem + 0.3vw, 1.4rem);
+         column-gap: clamp(1rem, 1.1rem + 0.3vw, 1.4rem);
+  }
+  .table-header,
+  .shelf-book-row {
+    grid-template-columns: clamp(65px, 7.5vw, 75px) 1.25fr 0.9fr 0.7fr 1.1fr 0.9fr clamp(60px, 6.2vw, 85px) clamp(60px, 6.2vw, 85px);
+    -moz-column-gap: clamp(0.4rem, 0.45rem + 0.3vw, 0.55rem);
+         column-gap: clamp(0.4rem, 0.45rem + 0.3vw, 0.55rem);
+  }
+  .stars {
+    font-size: clamp(1.2rem, 1.15rem + 0.4vw, 1.45rem);
+  }
+}
+@media screen and (max-width: 1000px) {
+  .stats-card {
+    width: 100%;
+  }
+  .stats-details {
+    grid-template-columns: 1.6fr 1fr;
+  }
+  .month-row {
+    grid-template-columns: clamp(68px, 8vw, 78px) 1fr;
+  }
+}
+@media screen and (max-width: 850px) {
+  .shelf-page {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+  .shelf-sidebar {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.55rem, 0.3rem + 0.7vw, 0.7rem);
+  }
+  .shelf-sidebar h2 {
+    grid-column: 1/-1;
+  }
+  .add-shelf-btn {
+    grid-column: 1/-1;
+  }
+  .shelf-tab::after {
+    display: none;
+  }
+  .shelf-table {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .table-header,
+  .shelf-book-row {
+    min-width: clamp(700px, 95vw, 760px);
+  }
+}
+@media screen and (max-width: 800px) {
+  #root {
+    padding: 0 5vw;
+  }
+  header {
+    min-height: auto;
+    padding: clamp(0.9rem, 1.2rem + 0.5vw, 1.3rem) 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  header h1 {
+    font-size: clamp(1.7rem, 1.4rem + 1.2vw, 2rem);
+  }
+  .search-bar {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+  }
+  .search-bar input[type=text] {
+    width: 100%;
+    flex: 1;
+  }
+  .nav-btns {
+    margin-left: auto;
+  }
+  .arrow-flex button {
+    width: clamp(40px, 10vw, 46px);
+    height: clamp(40px, 10vw, 46px);
+  }
+  .book img {
+    height: clamp(90px, 14vw, 100px);
+  }
+}
+@media screen and (max-width: 760px) {
+  .statistics-page {
+    padding-top: clamp(1rem, 0.9rem + 1vw, 1.2rem);
+  }
+  .statistics-page .stats-summary {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: clamp(0.2rem, 0.1rem + 0.3vw, 0.3rem);
+    padding: clamp(1.1rem, 1rem + 0.5vw, 1.3rem) clamp(0.4rem, 0.3rem + 0.6vw, 0.6rem);
+    min-height: clamp(140px, 18vw, 165px);
+  }
+  .statistics-page .summary-item {
+    gap: 0;
+  }
+  .statistics-page .summary-item iconify-icon {
+    display: block;
+    width: clamp(30px, 7vw, 34px);
+    height: clamp(30px, 7vw, 34px);
+    margin: 0 auto 0.15rem;
+    transform: translateX(-2px);
+  }
+  .statistics-page .summary-item strong {
+    width: 100%;
+    margin: 0.35rem 0 0;
+    font-size: clamp(1rem, 0.95rem + 0.8vw, 1.15rem);
+    line-height: 1;
+    text-align: center;
+  }
+  .statistics-page .summary-item span {
+    width: 100%;
+    margin: 0;
+    font-size: clamp(0.7rem, 0.62rem + 0.7vw, 0.75rem);
+    line-height: 1;
+    text-align: center;
+  }
+  .statistics-page .year-summary h2 {
+    font-size: clamp(1rem, 0.95rem + 0.7vw, 1.1rem);
+    line-height: 1;
+  }
+  .statistics-page .year-summary h3 {
+    margin: 0 0 0.25rem;
+    font-size: clamp(0.82rem, 0.8rem + 0.6vw, 0.9rem);
+    line-height: 1;
+  }
+  .statistics-page .year-summary .profile-circle {
+    width: clamp(34px, 8vw, 40px);
+    height: clamp(34px, 8vw, 40px);
+    margin: 0.25rem 0;
+  }
+  .statistics-page .year-summary p {
+    font-size: clamp(0.7rem, 0.65rem + 0.5vw, 0.75rem);
+    line-height: 1;
+  }
+  .statistics-page .stats-details {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .statistics-page .monthly-books {
+    padding-right: 0;
+  }
+  .statistics-page .stats-side {
+    border-left: none;
+    border-top: 1px solid rgb(20, 20, 20);
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+  .statistics-page .month-row {
+    grid-template-columns: clamp(70px, 10vw, 75px) 1fr;
+  }
+}
+@media screen and (max-width: 600px) {
+  .intro-section {
+    margin: clamp(1rem, 0.9rem + 1vw, 1.2rem) auto;
+    padding: 0 0.5rem;
+  }
+  .intro-section h2 {
+    font-size: clamp(1.25rem, 1.1rem + 0.9vw, 1.35rem);
+  }
+  .intro-section p {
+    font-size: clamp(0.88rem, 0.83rem + 0.6vw, 0.92rem);
+  }
+}
+@media screen and (max-width: 560px) {
+  #root {
+    padding: 0 4vw;
+  }
+  header {
+    align-items: flex-start;
+  }
+  header h1 {
+    font-size: clamp(1.55rem, 1.25rem + 1vw, 1.7rem);
+  }
+  .label {
+    top: clamp(0.7rem, 0.7rem + 0.4vw, 0.85rem);
+  }
+  .label h3 {
+    font-size: clamp(0.8rem, 0.75rem + 0.4vw, 0.85rem);
+  }
+  .arrow-flex {
+    display: none;
+  }
+  .book {
+    max-width: clamp(62px, 13vw, 70px);
+  }
+  .book img {
+    height: clamp(78px, 18vw, 88px);
+  }
+  .shelf-page {
+    padding-top: clamp(1.1rem, 1.05rem + 0.8vw, 1.2rem);
+  }
+  .shelf-sidebar {
+    grid-template-columns: 1fr;
+  }
+  .shelf-tab {
+    justify-content: center;
+  }
+  .shelf-tab.active {
+    justify-content: center;
+  }
+  .table-header,
+  .shelf-book-row {
+    min-width: clamp(680px, 92vw, 720px);
+  }
+}
+@media screen and (max-width: 480px) {
+  .intro-section p {
+    display: none;
+  }
+  .month-covers img {
+    width: clamp(16px, 5vw, 18px);
+    height: clamp(22px, 7vw, 26px);
+  }
+  .book-extremes {
+    gap: clamp(0.95rem, 1rem + 0.3vw, 1rem);
+  }
+  .average-length h2,
+  .average-rating h2 {
+    font-size: clamp(1.05rem, 1rem + 0.8vw, 1.15rem);
+  }
+}
 @media screen and (max-width: 420px) {
   .bookshelf-wrapper {
-    padding: 0 0.5rem;
+    padding: 0 clamp(0.5rem, 2vw, 0.75rem);
   }
   .bookshelf {
     width: 92vw;
@@ -975,14 +977,14 @@ main {
   }
   .shelf-grid {
     width: 95%;
-    padding-right: 2vmin;
+    padding-right: clamp(1.5vmin, 2vw, 2vmin);
     gap: 1.2vmin;
   }
   .shelf-grid .book {
-    max-width: 54px;
+    max-width: clamp(48px, 12vw, 54px);
   }
   .book img {
-    height: 78px;
+    height: clamp(72px, 17vw, 78px);
   }
   .label {
     bottom: 80%;
@@ -994,16 +996,16 @@ main {
     padding: 0.12rem 0.28rem;
   }
   .modal {
-    padding: 1.4rem;
+    padding: clamp(1.2rem, 1.3rem + 1vw, 1.4rem);
     width: min(92vw, 400px);
   }
   .modal h2 {
-    font-size: 1.25rem;
+    font-size: clamp(1.15rem, 1.2rem + 0.7vw, 1.25rem);
   }
   .modal-close {
     top: 0.5rem;
     right: 0.6rem;
-    font-size: 1.85rem;
+    font-size: clamp(1.6rem, 1.75rem + 0.5vw, 1.85rem);
   }
 }
 @media screen and (max-width: 360px) {
@@ -1014,10 +1016,10 @@ main {
     gap: 1vmin;
   }
   .book {
-    max-width: 50px;
+    max-width: clamp(46px, 12vw, 50px);
   }
   .book img {
-    height: 72px;
+    height: clamp(68px, 16vw, 72px);
   }
   .label {
     bottom: 79%;

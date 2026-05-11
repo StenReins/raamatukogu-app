@@ -107,11 +107,11 @@ header
         display: flex
         a
             @include hide-link()
-    h1
-        margin: 0
-        font-size: 3rem
-        font-weight: 400
-        white-space: nowrap
+            h1
+              position: absolute
+        .skip-link
+          color: transparent
+          position: absolute
 
 .logo-link
     @include flex(row, center, center)
