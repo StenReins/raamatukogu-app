@@ -19,9 +19,11 @@
             <a href="/" class="logo-link" aria-label="Bookshelf app home">
                 <img src="resources/logo.png" alt="Bookshelf app logo" class="site-logo">
             </a>
+            <h1>Bookshelf app</h1>
             <form class="search-bar" id="search-form">
                 <label for="search">
-                    <iconify-icon icon="ic:baseline-search" data-inline="false" width="32" aria-label="Search"></iconify-icon>
+                    <iconify-icon icon="ic:baseline-search" data-inline="false" width="32" aria-hidden="true"></iconify-icon>
+                    <span class="sr-only">Search</span>
                 </label>
                 <input 
                     type="text"
@@ -39,9 +41,10 @@
                 <a href="/user/settings" aria-label="Settings">
                     <iconify-icon icon="ic:outline-settings" data-inline="false" width="32" aria-hidden="true"></iconify-icon>
                 </a>
+                <a class="skip-link" href="#main">Skip to content</a>
             </nav>
         </header>
-        <main>
+        <main id="main">
             <section class="intro-section">
                 <h2>Your personal reading tracker</h2>
                 <p>
@@ -59,33 +62,33 @@
                                     </a>
                                 </div>
                                 <div class="arrow-flex">
-                                    <button aria-label="Previous books in Want to read shelf">
+                                    <button type="button" aria-label="Previous books in Want to read shelf" aria-controls="toRead-grid">
                                         <iconify-icon icon="material-symbols:arrow-back-rounded" width="24" height="24" class="arrow clickable"></iconify-icon>
                                     </button>
                                     <div class="spacer"></div>
-                                    <button aria-label="Next books in Want to read shelf">
+                                    <button type="button" aria-label="Next books in Want to read shelf" aria-controls="toRead-grid">
                                         <iconify-icon icon="material-symbols:arrow-back-rounded" width="24" height="24" class="arrow clickable reverse"></iconify-icon>
                                     </button>
                                 </div>
-                                <article class="shelf-grid">
+                                <article class="shelf-grid" id="toRead-grid">
                                     <div class="book">
                                         <a href="/">
-                                            <img src="resources/test-cover.jpg" alt="Test cover">
+                                            <img src="resources/test-cover.jpg" alt="Book cover of J.K. Rowling Harry Potter and the Philosopher's Stone">
                                         </a>
                                     </div>
                                     <div class="book">
                                         <a href="/">
-                                            <img src="resources/test-cover2.jpg" alt="Test cover"> 
+                                            <img src="resources/test-cover2.jpg" alt="Book cover of Silvia Moreno-Garcia Mexican Gothic"> 
                                         </a>                               
                                     </div>
                                     <div class="book">
                                         <a href="/">
-                                            <img src="resources/test-cover.jpg" alt="Test cover"> 
+                                            <img src="resources/test-cover.jpg" alt="Book cover of J.K. Rowling Harry Potter and the Philosopher's Stone"> 
                                         </a>                               
                                     </div>
                                     <div class="book">
                                         <a href="/">
-                                            <img src="resources/test-cover.jpg" alt="Test cover"> 
+                                            <img src="resources/test-cover.jpg" alt="Book cover of J.K. Rowling Harry Potter and the Philosopher's Stone"> 
                                         </a>                               
                                     </div>
                                 </article>
@@ -97,15 +100,15 @@
                                     </a>
                                 </div>    
                                 <div class="arrow-flex">
-                                    <button aria-label="Previous books in Currently reading shelf">
+                                    <button type="button" aria-label="Previous books in Currently reading shelf" aria-controls="reading-grid">
                                         <iconify-icon icon="material-symbols:arrow-back-rounded" width="24" height="24" class="arrow clickable"></iconify-icon>
                                     </button>
                                     <div class="spacer"></div>
-                                    <button aria-label="Next books in Currently reading shelf">
+                                    <button type="button" aria-label="Next books in Currently reading shelf" aria-controls="reading-grid">
                                         <iconify-icon icon="material-symbols:arrow-back-rounded" width="24" height="24" class="arrow clickable reverse"></iconify-icon>
                                     </button>
                                 </div>
-                                <article class="shelf-grid">
+                                <article class="shelf-grid" id="reading-grid">
                                 </article>
                             </div>
                             <div class="shelf">
@@ -114,13 +117,13 @@
                                         <h3 class="clickable">Finished</h3>
                                     </a>
                                 </div>
-                                <article class="shelf-grid"></article>
+                                <article class="shelf-grid" id="read-grid"></article>
                                 <div class="arrow-flex">
-                                    <button aria-label="Previous books in Finished shelf">
+                                    <button type="button" aria-label="Previous books in Finished shelf" aria-controls="read-grid">
                                         <iconify-icon icon="material-symbols:arrow-back-rounded" width="24" height="24" class="arrow clickable"></iconify-icon>
                                     </button>
                                     <div class="spacer"></div>
-                                    <button aria-label="Next books in Finished shelf">
+                                    <button type="button" aria-label="Next books in Finished shelf" aria-controls="read-grid">
                                         <iconify-icon icon="material-symbols:arrow-back-rounded" width="24" height="24" class="arrow clickable reverse"></iconify-icon>
                                     </button>
                                 </div>                   
