@@ -19,10 +19,12 @@
         <header>
             <a href="/" class="logo-link" aria-label="Bookshelf app home">
                 <img src="/resources/logo.png" alt="Bookshelf app logo" class="site-logo">
+                <h1>Bookshelf app</h1>
             </a>
             <form class="search-bar" id="search-form">
                 <label for="search">
-                    <iconify-icon icon="ic:baseline-search" data-inline="false" width="32" aria-label="Search"></iconify-icon>
+                    <iconify-icon icon="ic:baseline-search" data-inline="false" width="32" aria-hidden="true"></iconify-icon>
+                    <span class="sr-only">Search</span>
                 </label>
                 <input 
                     type="text"
@@ -30,20 +32,21 @@
                 />
                 <input type="submit" value="Search">
             </form>
-            <nav class="nav-btns">
-                <a href="/">
-                    <iconify-icon icon="ic:baseline-local-library" data-inline="false" width="32" class="icon-button"></iconify-icon>
+            <nav class="nav-btns" aria-label="Main navigation">
+                <a href="/" aria-label="Home">
+                    <iconify-icon icon="ic:baseline-local-library" data-inline="false" width="32" class="icon-button" aria-hidden="true"></iconify-icon>
                 </a>
-                <a href="/user/statistics">
-                    <iconify-icon icon="ic:baseline-bar-chart" data-inline="false" width="32"></iconify-icon>
+                <a href="/user/statistics" aria-label="Statistics">
+                    <iconify-icon icon="ic:baseline-bar-chart" data-inline="false" width="32" aria-hidden="true"></iconify-icon>
                 </a>
-                <a href="/user/settings">
-                    <iconify-icon icon="ic:outline-settings" data-inline="false" width="32"></iconify-icon>
+                <a href="/user/settings" aria-label="Settings">
+                    <iconify-icon icon="ic:outline-settings" data-inline="false" width="32" aria-hidden="true"></iconify-icon>
                 </a>
+                <a class="skip-link" href="#main">Skip to content</a>
             </nav>
         </header>
         <main>
-            <div class="book" id="book">
+            <div class="book-detail" id="book">
                 <div class="book-cover">
                     <img src="" alt="Book cover" id="book-image">
                 </div>
@@ -72,7 +75,7 @@
                     </div>
                     <div class="review">
                         <form action=# name="review-form" id="review-form">
-                            <h3 id="title" class="call-to-action-text">Select a rating:</h1>
+                            <h3 id="title" class="call-to-action-text">Select a rating:</h3>
                             <div class="star-wrap">
                                 <label class="star-label hidden"></label>
                                 <input class="star" type="radio" id="st-1" value="1" name="star-radio" autocomplete="off" />
